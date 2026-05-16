@@ -1,0 +1,17 @@
+# Dependencias de Node.js (se instalan con npm install)
+node_modules/
+
+# Variables de entorno y claves secretas
+.env
+
+# Modelos locales de IA (son muy pesados para Git)
+models/
+
+# Archivos de logs del sistema o errores
+*.log
+
+# Archivos temporales de sistema (macOS)
+.DS_Store
+
+# Archivos temporales de sistema (Windows)
+Thumbs.db
