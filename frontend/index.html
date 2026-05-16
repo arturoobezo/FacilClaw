@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FacilClaw - Local AI Assistant</title>
+    <meta name="description" content="Interfaz de agente IA local potente y moderna para gestión de conversaciones y modelos.">
+    <!-- Enlace a estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <div class="app-wrapper">
+        
+        <!-- MENÚ LATERAL IZQUIERDO -->
+        <aside class="sidebar-left" aria-label="Historial de conversaciones">
+            <div class="sidebar-header">
+                <button id="btn-nueva-conversacion" class="btn-primary">
+                    <span class="icon">+</span> Nueva conversación
+                </button>
+            </div>
+            
+            <nav class="history-container">
+                <ul id="lista-historial" class="conversation-list">
+                    <!-- Dinámico -->
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="model-selector-wrapper">
+                    <label for="selector-modelo">Modelo activo:</label>
+                    <select id="selector-modelo" class="custom-select">
+                        <option value="">Seleccionar modelo...</option>
+                    </select>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ÁREA DE CHAT (CENTRO) -->
+        <main class="chat-container">
+            <header class="chat-header">
+                <button id="btn-menu-mobile" class="btn-icon mobile-only" title="Menú">
+                    <span class="icon">☰</span>
+                </button>
+                <div class="agent-info">
+                    <h1 class="agent-name">FacilClaw</h1>
+                    <p class="model-badge">Modelo: <span id="badge-modelo-activo">Ninguno seleccionado</span></p>
+                </div>
+                <div class="header-actions">
+                    <button id="btn-panel-modelos" class="btn-icon" title="Gestión de modelos">
+                        <span class="icon">⚙</span>
+                    </button>
+                </div>
+            </header>
+
+            <section id="area-mensajes" class="messages-viewport">
+                <!-- Los mensajes aparecerán aquí -->
+            </section>
+
+            <!-- Zona de drop para imágenes -->
+            <div id="zona-drop" class="drop-zone">
+                <div class="drop-zone-content">
+                    <span class="drop-icon">📁</span>
+                    <p>Suelta tu imagen para analizarla</p>
+                </div>
+            </div>
+
+            <footer class="chat-footer">
+                <div id="preview-imagen" class="image-preview-container" hidden>
+                    <div class="preview-wrapper">
+                        <img src="" alt="Preview" id="img-render-preview">
+                        <button class="btn-remove-preview">✕</button>
+                    </div>
+                </div>
+
+                <div class="input-area">
+                    <div class="input-controls">
+                        <button id="btn-adjuntar" class="btn-icon" title="Adjuntar imagen">
+                            <span class="icon">📎</span>
+                        </button>
+                        <input type="file" id="input-imagen" accept="image/*" hidden>
+                    </div>
+
+                    <div class="textarea-wrapper">
+                        <textarea id="input-mensaje" rows="1" placeholder="Escribe tu mensaje aquí..."></textarea>
+                    </div>
+
+                    <div class="action-controls">
+                        <button id="btn-microfono" class="btn-icon" title="Dictado por voz">
+                            <span class="icon">🎤</span>
+                        </button>
+                        <button id="btn-enviar" class="btn-send" title="Enviar mensaje">
+                            <span class="icon">➤</span>
+                        </button>
+                    </div>
+                </div>
+            </footer>
+        </main>
+
+        <!-- PANEL LATERAL DERECHO — GESTIÓN DE MODELOS (Inicia colapsado) -->
+        <aside class="sidebar-right models-panel collapsed" id="panel-derecho-modelos">
+            <div class="panel-section">
+                <h2>Modelos Instalados</h2>
+                <ul id="lista-modelos-instalados" class="models-list">
+                    <!-- Dinámico -->
+                </ul>
+            </div>
+
+            <div class="panel-section">
+                <h2>Descargar Modelo</h2>
+                <div class="download-form">
+                    <input type="text" id="input-nuevo-modelo" placeholder="Nombre o ID del modelo...">
+                    <button id="btn-descargar-modelo" class="btn-secondary">Descargar</button>
+                </div>
+                
+                <div id="container-progreso" class="progress-container">
+                    <progress id="barra-progreso" value="0" max="100" hidden></progress>
+                    <p id="estado-descarga" class="status-text"></p>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- Scripts al final del body -->
+    <script src="app.js"></script>
+</body>
+</html>

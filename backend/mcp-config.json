@@ -1,0 +1,49 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "./datos",
+        "./historial"
+      ],
+      "_comentario": "Permite al agente leer y escribir archivos en carpetas locales seguras."
+    },
+    "duckduckgo": {
+      "_comentario": "Búsqueda web gratuita sin API key via DuckDuckGo",
+      "command": "npx",
+      "args": [
+        "-y",
+        "duckduckgo-mcp-server"
+      ]
+    },
+    "fetch": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-fetch"
+      ],
+      "_comentario": "Permite al agente navegar y extraer el contenido de sitios web a partir de una URL."
+    },
+    "memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "_comentario": "Habilita una base de conocimientos persistente para que el agente recuerde hechos a largo plazo."
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp"
+      ],
+      "env": {
+        "HEADLESS": "true"
+      },
+      "_comentario": "Permite al agente interactuar con navegadores web, hacer clics y tomar capturas de pantalla."
+    }
+  }
+}
